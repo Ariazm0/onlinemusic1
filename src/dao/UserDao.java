@@ -49,9 +49,10 @@ public class UserDao {
         return user;
     }
     //注册
-    public void register (User user) {
+    public int register (User user) {
         Connection connection = JDBCUtil.getConnection();
         PreparedStatement statement = null;
+        int ret = 0;
         try {
             String sql = "insert into user values (null,?,?,?,?,?) ";
             statement = connection.prepareStatement(sql);
@@ -60,10 +61,10 @@ public class UserDao {
             statement.setInt(3,user.getAge());
             statement.setString(4,user.getGender());
             statement.setString(5,user.getEmail());
-            int ret = statement.executeUpdate();
+            ret = statement.executeUpdate();
             if (ret != 1) {
                 System.out.println("注册失败");
-                return;
+                return 0;
             }
             System.out.println("注册成功");
 
@@ -73,7 +74,7 @@ public class UserDao {
         } finally {
             JDBCUtil.close(connection,statement,null);
         }
-
+        return ret;
     }
 
     /*public static void main(String[] args) {
