@@ -54,6 +54,7 @@ public class DeleteSelMusicServlet extends HttpServlet {
             return_map.put("msg", true);
             System.out.println("删除成功");
         }else {
+            System.out.println("删除失败");
             return_map.put("msg", false);
         }
         ObjectMapper mapper = new ObjectMapper();

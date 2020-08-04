@@ -40,12 +40,14 @@ public class RegisterServlet extends HttpServlet {
         user.setAge(age);
         UserDao dao = new UserDao();
         Map<String,Object> return_map = new HashMap<>();
-        if (dao.register(user) == 1) {
-            System.out.println("登陆成功");
-            return_map.put("msg",true);
-        }else {
-            System.out.println("登录失败");
+        if (dao.findUserByUsername(user.getUserName()) != null) {
+            System.out.println("登陆失败");
             return_map.put("msg",false);
+        }else {
+            if (dao.register(user) == 1) {
+                System.out.println("登录成功");
+                return_map.put("msg", true);
+            }
         }
         ObjectMapper mapper = new ObjectMapper();
         mapper.writeValue(resp.getWriter(),return_map);

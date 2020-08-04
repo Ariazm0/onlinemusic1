@@ -16,6 +16,36 @@ import java.sql.SQLException;
  * Time: 22:57
  */
 public class UserDao {
+    public User findUserByUsername (String name) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        User user = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "select * from user where username = ? ";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1,name);
+            set = statement.executeQuery();
+            if (set.next()) {
+                user = new User();
+                user.setId(set.getInt("id"));
+                user.setUserName(set.getString("username"));
+                user.setPassword(set.getString("password"));
+                user.setAge(set.getInt("age"));
+                user.setGender(set.getString("gender"));
+                user.setEmail(set.getString("email"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }finally {
+            JDBCUtil.close(connection,statement,set);
+        }
+        return user;
+    }
+
     //登录
     public User login(User loginUser) {
         Connection connection = null;
