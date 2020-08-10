@@ -1,7 +1,7 @@
 package dao;
 
 import entity.Music;
-import util.JDBCUtil;
+import DBUtil.JDBCUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

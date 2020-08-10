@@ -1,7 +1,7 @@
 package dao;
 
 import entity.User;
-import util.JDBCUtil;
+import DBUtil.JDBCUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
