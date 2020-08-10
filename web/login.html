@@ -29,14 +29,14 @@
 				var username=$("#user").val();
 				var password=$("#password").val();
 				$.ajax({
-					url:"/loginServlet",
+					url:"/onlinemusic/loginServlet",
                     data:{"username":username,"password":password},
                     type:"POST",
 					dataType:"json",
 					success:function (data) {
                         console.log(data);
                         if(data.msg===true){
-                            window.location.href="list.html";
+                            window.location.href="/onlinemusic/list.html";
                         }else{
                             /*window.location.reload();*/
                             $("#message").text("账号或密码错误，请重试!");
@@ -67,7 +67,7 @@
 	      <hr/>
 	      <div class="form-group" style="text-align: center;"><!--class="form-group"-->
 	        <input style="width: 180px;height: 40px" id="submit" class="btn btn btn-primary" type="button" value="登录" >
-			  <a   style="width: 180px;height: 40px" class="btn btn-primary" href="/register.html">注册</a>
+			  <a   style="width: 180px;height: 40px" class="btn btn-primary" href="/onlinemusic/register.html">注册</a>
 		  </div>
 
 

@@ -33,8 +33,10 @@
                 var gender=$("#gender").val();
                 var age=$("#age").val();
 
+
+
                 $.ajax({
-                    url:"/registerServlet",
+                    url:"/onlinemusic/registerServlet",
                     data:{"username":username,"password":password,"email":email,"gender":gender,"age":age},
                     type:"POST",
                     dataType:"json",
@@ -44,7 +46,7 @@
                             alert("注册成功");
                         }else{
                             /*window.location.reload();*/
-                            alert("注册失败");
+                            alert("注册失败：用户名已存在！");
                             $("#user").val("");
                             $("#password").val("");
                             $("#email").val("");
@@ -73,6 +75,7 @@
     </div>
 
 
+
     <div class="form-group">
         <label for="email">邮箱：</label>
         <input type="text" name="email" class="form-control" id="email" placeholder="请输入邮箱"/>
@@ -95,7 +98,7 @@
     </div>
 
     <div style="text-align: center;">
-        <a style="width: 200px;height: 40px" class="btn btn-primary" href="/login.html">退出</a>
+        <a style="width: 200px;height: 40px" class="btn btn-primary" href="/onlinemusic/login.html">退出</a>
     </div>
 
 

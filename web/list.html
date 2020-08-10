@@ -42,7 +42,7 @@
         });
         function load(musicName){
             $.ajax({
-                url: "/findMusic",
+                url: "/onlinemusic/findMusic",
                 type:"get",
                 data:{musicName:musicName},
                 dataType: "json",
@@ -85,7 +85,7 @@
         function loveInfo(obj) {
             console.log(obj);
             $.ajax({
-                url:"/loveMusicServlet",
+                url:"/onlinemusic/loveMusicServlet",
                 type: "post",
                 //发送给后端的数据
                 data: {"id": obj},
@@ -93,7 +93,7 @@
                 success: function (data) {
                     if(data.msg===true){
                         alert("加入喜欢的列表成功");
-                        window.location.href="list.html";
+                        window.location.href="/onlinemusic/list.html";
                     }else{
                         alert("加入喜欢的列表失败或者已经存在该音乐");
                     }
@@ -104,7 +104,7 @@
         function deleteInfo(obj) {
             console.log(obj);
             $.ajax({
-                url:"/deleteServlet",
+                url:"/onlinemusic/deleteServlet",
                 type: "post",
                 //发送给后端的数据
                 data: {"id": obj},
@@ -112,7 +112,7 @@
                 success: function (data) {
                     if(data.msg===true){
                         alert("删除成功");
-                        window.location.href="list.html";
+                        window.location.href="/onlinemusic/list.html";
                     }else{
                         alert("删除失败");
                     }
@@ -141,7 +141,7 @@
                     });
                     //发送ajax请求
                     $.ajax({
-                        url:"/deleteSelMusicServlet",
+                        url:"/onlinemusic/deleteSelMusicServlet",
                         //将id数组，发送给deleteSelectedServlet
                         data:{"id":id},
                         type: "POST",
@@ -149,7 +149,7 @@
                         success:function (data) {
                             if(data.msg===true){
                                 alert("删除成功");
-                                window.location.href="list.html";
+                                window.location.href="/onlinemusic/list.html";
                             }else{
                                 alert("删除失败");
                             }
@@ -162,7 +162,7 @@
 </head>
 <body id="body">
 <div class="container">
-    <h3 style="text-align: center">AriaZM播放器实现</h3>
+    <h3 style="text-align: center">AriaZM播放器</h3>
     <div style="float: left;">
         <form class="form-inline">
             <div class="form-group">
@@ -173,9 +173,9 @@
         </form>
     </div>
     <div style="float: right;margin-bottom: 15px">
-        <a class="btn btn-primary" href="/MV.html">MV列表</a>
-        <a class="btn btn-primary" href="/loveMusic.html">喜欢列表</a>
-        <a class="btn btn-primary" href="/upload.html">添加歌曲</a>
+        <a class="btn btn-primary" href="/onlinemusic/MV.html">MV列表</a>
+        <a class="btn btn-primary" href="/onlinemusic/loveMusic.html">喜欢列表</a>
+        <a class="btn btn-primary" href="/onlinemusic/upload.html">添加歌曲</a>
         <a id="delete" class="btn btn-primary">删除选中</a>
     </div>
     <table border="1" class="table table-bordered table-hover">

@@ -28,7 +28,7 @@ import java.util.List;
 //将音乐信息存入数据库中
 @WebServlet("/upload")
 public class UpLoad extends HttpServlet {
-    private final String SAVEPATH="D:\\javacode\\onlinemusic\\web\\music\\";
+    private final String SAVEPATH="/root/apache-tomcat-8.5.57/webapps/onlinemusic/music";
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");

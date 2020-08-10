@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class JDBCUtil {
     private static String url = "jdbc:mysql://127.0.0.1:3306/musicserver?characterEncoding=utf-8&useSSL=true";
     private static String username = "root";
-    private static String password = "110603";
+    private static String password = "";
     private static volatile DataSource dataSource = null;
 
     public static DataSource getDataSource() {
