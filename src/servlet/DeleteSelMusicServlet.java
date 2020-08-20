@@ -39,7 +39,7 @@ public class DeleteSelMusicServlet extends HttpServlet {
             Music music = dao.findMusicById(id);
             int num = dao.deleteMusicById(id);
             if (num == 1) {
-                File file = new File("D://javacode//onlinemusic//web//" + music.getUrl()+ ".mp3");
+                File file = new File("/root/apache-tomcat-8.5.57/webapps/onlinemusic/" + music.getUrl()+ ".mp3");
                 System.out.println("文件是否存在：" + file.exists());
                 System.out.println("file: " + file);
                 if (file.delete()) {
